@@ -27,8 +27,9 @@ jobs:
           FIRST_NAME: Mona
           middle_name: The
           Last_Name: Octocat
+          applicationName: "${{ github.base_ref }}-myapplication"  
         run: |
-         echo "${FIRST_NAME}-Mr. Janardan"
+         echo "${applicationName}-Mr. Janardan"
       
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2

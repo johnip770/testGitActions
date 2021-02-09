@@ -74,7 +74,7 @@ jobs:
         echo $PASSWORD
         artifactName=$(ls *.jar | head -1)
        
-        mvn mule:deploy -Dmule.artifact=$artifactName danypoint.applicationName="dev-testgitactions"
+        mvn mule:deploy -Dmule.artifact=$artifactName -Danypoint.applicationName="dev-testgitactions"
        
       #  mvn mule:deploy -Dmule.artifact=$artifactName -Danypoint.userName=johnip770 -Danypoint.password=Nehalpag1971
                         

@@ -33,7 +33,7 @@ jobs:
       - name: Run a multi-line script
          
         run: |
-          name: "my Name"
-          echo "${name} - Janardan" 
+          name1: "my Name"
+          echo "${name1} - Janardan" 
           echo Add other actions to build,
           echo test, and deploy your project.

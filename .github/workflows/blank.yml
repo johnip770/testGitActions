@@ -71,7 +71,7 @@ jobs:
         
       run: |        
         artifactName=$(ls *.jar | head -1)
-        echo "janardan-"$artifactName       
+        echo "janardan-${artifactName}"
         
          mvn mule:deploy -Dmule.artifact=$artifactName -Danypoint.userName=$username -Danypoint.password=$password -Danypoint.applicationName=$anypointapplication
       #  mvn mule:deploy -Dmule.artifact=$artifactName -Danypoint.applicationName="dev-testgitactions"

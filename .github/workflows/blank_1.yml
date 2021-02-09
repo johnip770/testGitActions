@@ -21,7 +21,13 @@ jobs:
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:          
+    steps:    
+      - name: printecho
+        run: |
+         raw=$(git branch -r --contains ${{ github.ref }})
+         branch=${raw/origin\/}
+         echo ::set-env name=BRANCH::$branch
+             
       - name: priting variables
         env:
           FIRST_NAME: Mona
@@ -30,10 +36,7 @@ jobs:
         
         run: |
          echo "janardan Pagadala"
-         raw= ${{ github.ref }}
-         echo $raw
-         branch=${raw/origin\/}  
-         echo $branch 
+        
                         
          
       

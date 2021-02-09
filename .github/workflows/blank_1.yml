@@ -27,9 +27,10 @@ jobs:
           FIRST_NAME: Mona
           middle_name: The
           Last_Name: Octocat
-          applicationName: "${{ github.base_ref }}-myapplication"  
+          applicationName: ($GITHUB_REF | cut -d'/' -f 3)
         run: |
          echo $GITHUB_REF
+         echo $applicationName
          echo $(echo $GITHUB_REF | cut -d'/' -f 3)
       
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it

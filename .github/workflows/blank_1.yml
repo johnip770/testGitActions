@@ -22,17 +22,23 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Set output
+        id: vars
+        run: echo ::set-output name=short_ref::${GITHUB_REF#refs/*/}
+      - name: Check output
+        run: echo ${{ steps.vars.outputs.short_ref }}
+          
       - name: priting variables
         env:
           FIRST_NAME: Mona
           middle_name: The
           Last_Name: Octocat
-          
+        
         run: |
-         echo $GITHUB_REF
-         applicationName:  $(echo $GITHUB_REF | cut -d'/' -f 3)
-         echo $applicationName         
-         echo $(echo $GITHUB_REF | cut -d'/' -f 3)
+          echo "janardan Pagadala"
+              
+                        
+         
       
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2

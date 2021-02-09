@@ -65,12 +65,12 @@ jobs:
         name: artifacts
     - name: Deploy to CloudHub
       env:
-        USERNAME: ${{ secrets.anypoint_userName }}
-        PASSWORD: ${{ secrets.anypoint_password }}
+        USERNAME: ${{ secrets.ANYPOINT_PASSWORD }}
+        PASSWORD: ${{ secrets.ANYPOINT_USERNAME }}
         appname: "dev-testGitActions" 
       run: |
         artifactName=$(ls *.jar | head -1)
-        mvn mule:deploy -Dmule.artifact=$artifactName -Danypoint.userName="$USERNAME" -Danypoint.password="$PASSWORD" -Danypoint.applicationName= "$appname"
+        mvn mule:deploy -Dmule.artifact=$artifactName -Danypoint.userName="$USERNAME" -Danypoint.password="$PASSWORD"
       #  mvn mule:deploy -Dmule.artifact=$artifactName               
       # Runs a single command using the runners shell
       #- name: Run a one-line script

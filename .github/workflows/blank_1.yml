@@ -21,13 +21,7 @@ jobs:
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      - name: Set output
-        id: vars
-        run: echo ::set-output name=short_ref::${GITHUB_REF#refs/*/}
-      - name: Check output
-        run: echo ${{ steps.vars.outputs.short_ref }}
-          
+    steps:          
       - name: priting variables
         env:
           FIRST_NAME: Mona
@@ -35,8 +29,10 @@ jobs:
           Last_Name: Octocat
         
         run: |
-          echo "janardan Pagadala"
-              
+         echo "janardan Pagadala"
+         raw=$(git branch -r --contains ${{ github.ref }})
+         branch=${raw/origin\/}  
+         echo $branch 
                         
          
       

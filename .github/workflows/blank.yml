@@ -73,8 +73,10 @@ jobs:
         echo $USERNAME
         echo $PASSWORD
         artifactName=$(ls *.jar | head -1)
-        mvn mule:deploy -Dmule.artifact=$artifactName -Danypoint.userName="$USERNAME" -Danypoint.password="$PASSWORD"
-      #  mvn mule:deploy -Dmule.artifact=$artifactName               
+       
+       mvn mule:deploy -Dmule.artifact=$artifactName
+      #  mvn mule:deploy -Dmule.artifact=$artifactName -Danypoint.userName=johnip770 -Danypoint.password=Nehalpag1971
+                        
       # Runs a single command using the runners shell
       #- name: Run a one-line script
       #  run: echo Hello, world!

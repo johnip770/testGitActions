@@ -20,6 +20,8 @@
 		<app.name>testGitActions</app.name>
 		<app.version>1.0.0</app.version>
 		<app.packaging>mule-application</app.packaging>	
+		<anypoint.userName>johnip8295</anypoint.userName>
+		<anypoint.password>Nehalpag1971</anypoint.password>
 		
 		
 	</properties>
@@ -43,9 +45,9 @@
 					<cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
 						<muleVersion>${app.runtime}</muleVersion>
-						<username>${anypoint_userName}</username>
-						<password>${anypoint_password}</password>
-						<applicationName>${anypoint_appname}</applicationName>
+						<username>${anypoint.userName}</username>
+						<password>${anypoint.password}</password>
+						<applicationName>${app.name}</applicationName>
 						<environment>Sandbox</environment>
 						<workerType>MICRO</workerType>
 						<region>us-east-2</region>

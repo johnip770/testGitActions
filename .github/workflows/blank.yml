@@ -74,7 +74,7 @@ jobs:
         echo $PASSWORD
         artifactName=$(ls *.jar | head -1)
        
-         mvn mule:deploy -Dmule.artifact=$artifactName -Danypoint.userName= "${{ secrets.ANYPOINT_USERNAME }}" -Danypoint.password= "${{ secrets.ANYPOINT_PASSWORD }}"
+         mvn mule:deploy -Dmule.artifact=$artifactName -Danypoint.userName=${{ secrets.ANYPOINT_USERNAME }} -Danypoint.password=${{ secrets.ANYPOINT_PASSWORD }}
       #  mvn mule:deploy -Dmule.artifact=$artifactName -Danypoint.applicationName="dev-testgitactions"
       # Runs a single command using the runners shell
       #- name: Run a one-line script

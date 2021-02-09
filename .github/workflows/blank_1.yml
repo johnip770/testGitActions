@@ -30,7 +30,8 @@ jobs:
         
         run: |
          echo "janardan Pagadala"
-         raw=$(git branch -r --contains ${{ github.ref }})
+         raw= ${{ github.ref }}
+         echo $raw
          branch=${raw/origin\/}  
          echo $branch 
                         

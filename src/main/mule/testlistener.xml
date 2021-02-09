@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="2f6b17a2-67f4-4ed3-b12a-828e4ef61082" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="49c5533f-2418-40f9-878f-8518425183c6" file="deployment.properties" />
+	<flow name="testlistenerFlow" doc:id="4d1146f9-7cb0-4f34-bdf7-aa7079ca6d1e" >
+		<http:listener doc:name="Listener" doc:id="2447dbec-2fd8-449b-be6e-48b59d4e9753" config-ref="HTTP_Listener_config" path="/test" allowedMethods="GET"/>
+		<logger level="INFO" doc:name="Logger" doc:id="938291ca-4f11-4a4b-bf34-3f64f3d42b42" message="Test listener on /test "/>
+		<ee:transform doc:name="Transform Message" doc:id="6836a5e1-6e2d-4d8c-af39-ca42f49b43c3" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	message : "Success",
+	details : "command prompt deployment",
+	time : now(),
+	city : "Atlanta"
+	
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

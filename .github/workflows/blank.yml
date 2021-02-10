@@ -33,5 +33,5 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          APPNAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')
+          APPNAME="dev-$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')"
           echo "$APPNAME"

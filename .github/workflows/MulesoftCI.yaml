@@ -68,7 +68,7 @@ jobs:
         username: ${{ secrets.ANYPOINT_USERNAME }}        
         password: ${{ secrets.ANYPOINT_PASSWORD }}
         app.name: "dev-testGitActions"
-        mule.env: "SANDBOX"  
+        mule.env: "Sandbox"  
         
       run: |        
         artifactName=$(ls *.jar | head -1)

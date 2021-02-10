@@ -67,13 +67,13 @@ jobs:
       env:
         username: ${{ secrets.ANYPOINT_USERNAME }}        
         password: ${{ secrets.ANYPOINT_PASSWORD }}
-        anypointapplication: "dev-testGitActions" 
+        app.name: "dev-testGitActions" 
         
       run: |        
         artifactName=$(ls *.jar | head -1)
         echo "janardan-${artifactName}"
-        
-         mvn mule:deploy -Dmule.artifact=$artifactName -Danypoint.userName=$username -Danypoint.password=$password -Danypoint.applicationName=$anypointapplication
+          mvn mule:deploy -Dmule.artifact=$artifactName 
+      #   mvn mule:deploy -Dmule.artifact=$artifactName -Danypoint.userName=$username -Danypoint.password=$password -Danypoint.applicationName=$anypointapplication
       #  mvn mule:deploy -Dmule.artifact=$artifactName -Danypoint.applicationName="dev-testgitactions"
       # Runs a single command using the runners shell
       #- name: Run a one-line script

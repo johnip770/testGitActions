@@ -71,8 +71,7 @@ jobs:
         mule.env: "Sandbox"  
         
       run: |        
-        artifactName=$(ls *.jar | head -1)
-        echo "janardan-${artifactName}"
+        artifactName=$(ls *.jar | head -1)        
         mvn mule:deploy -Dmule.artifact=$artifactName 
         
       #   mvn mule:deploy -Dmule.artifact=$artifactName -Danypoint.userName=$username -Danypoint.password=$password -Danypoint.applicationName=$anypointapplication

@@ -16,12 +16,8 @@
 
 		<app.runtime>4.3.0</app.runtime>
 		<mule.maven.plugin.version>3.3.5</mule.maven.plugin.version>
-		
-		<app.name>testGitActions</app.name>
-		<app.version>1.0.0</app.version>
-		<app.packaging>mule-application</app.packaging>	
-		
-		
+		<munit.version>2.2.4</munit.version>
+		<app.name>testGitActions</app.name>		
 	</properties>
 
 	<build>
@@ -45,25 +41,56 @@
 						<muleVersion>${app.runtime}</muleVersion>
 						<username>${username}</username>
 						<password>${password}</password>
-						<applicationName>${anypointapplication}</applicationName>
+						<applicationName>${app.name}</applicationName>
 						<environment>Sandbox</environment>
 						<workerType>MICRO</workerType>
 						<region>us-east-2</region>
 						<workers>1</workers>
 						<objectStoreV2>true</objectStoreV2>
+						<properties>
+						     <mule.env/>
+						     <mule.encryptionKey/>
+						     <anypoint.platform.client_id/>
+						     <anypoint.platform.client_secret/>
+                  		</properties>
 					</cloudHubDeployment>				
-				</configuration>	
-    <executions>
-        <execution>
-            <id>deploy</id>
-            <phase>deploy</phase>
-            <goals>
-                <goal>deploy</goal>
-            </goals>
-        </execution>
-    </executions>
-							
+				</configuration>
 			</plugin>
+				<plugin>
+			            <groupId>com.mulesoft.munit.tools</groupId>
+			            <artifactId>munit-maven-plugin</artifactId>
+			            <version>${munit.version}</version>
+			            <executions>
+			               <execution>
+			                  <id>test</id>
+			                  <phase>test</phase>
+			                  <goals>
+			                     <goal>test</goal>
+			                     <goal>coverage-report</goal>
+			                  </goals>
+			               </execution>
+			            </executions>
+			            <configuration>
+			               <systemPropertyVariables>
+			                  <mule.env>munit</mule.env>
+			               </systemPropertyVariables>
+			               <coverage>
+			                  <runCoverage>true</runCoverage>
+			                  <failBuild>true</failBuild>
+			                  <requiredApplicationCoverage>0</requiredApplicationCoverage>
+			                  <requiredResourceCoverage>0</requiredResourceCoverage>
+			                  <requiredFlowCoverage>100</requiredFlowCoverage>
+			                  <formats>
+			                     <format>console</format>
+			                     <format>html</format>
+			                  </formats>
+			                  <ignoreFlows>
+			                     <ignoreFlow />
+			                     <ignoreFlow />
+			                  </ignoreFlows>
+			               </coverage>
+			            </configuration>
+         </plugin>			
 		</plugins>
 	</build>
 

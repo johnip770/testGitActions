@@ -37,3 +37,10 @@ jobs:
           echo "$APPNAME"
           BRANCH=$(echo $GITHUB_REF | cut -d'/' -f 3)
           echo $BRANCH
+          IF BRANCH == "master1"
+          echo "i'm in master"
+          else if BRANCH == "master2"
+          echo "i'm in master2"
+          else 
+          echo "i'm in master"
+          

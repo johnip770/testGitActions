@@ -67,7 +67,7 @@ jobs:
       env:
         username: ${{ secrets.ANYPOINT_USERNAME }}        
         password: ${{ secrets.ANYPOINT_PASSWORD }}
-        anypointapplication: "dev-testGitActions" 
+        app.name: "dev-testGitActions" 
         
       run: |        
         artifactName=$(ls *.jar | head -1)

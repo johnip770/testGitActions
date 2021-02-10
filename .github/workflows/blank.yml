@@ -34,6 +34,4 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          echo "::set-env name=BRANCH_NAME::${{ github.head_ref }}"
-          echo terraform workspace select $BRANCH_NAME || terraform workspace new $BRANCH_NAME
-          echo terraform apply -var="branch_name=$BRANCH_NAME" -auto-approve
+          echo ${{ github.head_ref }}

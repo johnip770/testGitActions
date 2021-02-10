@@ -134,5 +134,16 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-
+	<distributionManagement>
+		<repository>
+			<id/>
+			<url/>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</distributionManagement>
 </project>

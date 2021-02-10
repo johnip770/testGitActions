@@ -68,11 +68,11 @@ jobs:
         username: ${{ secrets.ANYPOINT_USERNAME }}        
         password: ${{ secrets.ANYPOINT_PASSWORD }}
         app.name: "dev-testGitActions"
-        mule.env: "Sandbox"  
+       
         
       run: |        
         artifactName=$(ls *.jar | head -1)        
-        mvn mule:deploy -Dmule.artifact=$artifactName 
+        mvn mule:deploy -Dmule.artifact=$artifactName
         
       #   mvn mule:deploy -Dmule.artifact=$artifactName -Danypoint.userName=$username -Danypoint.password=$password -Danypoint.applicationName=$anypointapplication
       #  mvn mule:deploy -Dmule.artifact=$artifactName -Danypoint.applicationName="dev-testgitactions"

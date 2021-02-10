@@ -35,5 +35,5 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           echo ${{ github.head_ref }}
-          echo ${{ github.event.pull_request.head.ref }}
-          echo ${{ github.event.push_request.head.ref }}
+          echo ${{ github.event }}
+          echo ${{ github }}

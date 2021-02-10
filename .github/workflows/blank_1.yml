@@ -22,3 +22,6 @@ jobs:
       - run: terraform init
       - run: terraform workspace select $BRANCH_NAME || terraform workspace new $BRANCH_NAME
       - run: terraform apply -var="branch_name=$BRANCH_NAME" -auto-approve
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest

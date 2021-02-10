@@ -35,3 +35,5 @@ jobs:
           echo test, and deploy your project.
           APPNAME="dev-$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')"
           echo "$APPNAME"
+          BRANCH=$(echo $GITHUB_REF | cut -d'/' -f 3)
+          echo $BRANCH
